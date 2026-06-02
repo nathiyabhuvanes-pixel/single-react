@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Single Page Layout</title>
+
+    <!-- React CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .navbar ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .hero {
+            background: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            margin-bottom: 10px;
+        }
+
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .card {
+            background: white;
+            width: 250px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+
+        .card h3 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        // Navbar Component
+        function Navbar() {
+            return (
+                <div className="navbar">
+                    <h2>My React Website</h2>
+                    <ul>
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Services</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+            );
+        }
+
+        // Hero Component
+        function Hero() {
+            return (
+                <div className="hero">
+                    <h1>Welcome to React.js</h1>
+                    <p>Create modern single-page applications with ease.</p>
+                </div>
+            );
+        }
+
+        // Card Component using Props
+        function Card(props) {
+            return (
+                <div className="card">
+                    <h3>{props.title}</h3>
+                    <p>{props.description}</p>
+                </div>
+            );
+        }
+
+        // Services Component
+        function Services() {
+            return (
+                <div className="section">
+                    <h2>Our Services</h2>
+
+                    <div className="cards">
+                        <Card
+                            title="Web Development"
+                            description="Build responsive and modern websites."
+                        />
+
+                        <Card
+                            title="UI/UX Design"
+                            description="Create attractive and user-friendly interfaces."
+                        />
+
+                        <Card
+                            title="React Applications"
+                            description="Develop fast and interactive web applications."
+                        />
+                    </div>
+                </div>
+            );
+        }
+
+        // Footer Component
+        function Footer() {
+            return (
+                <div className="footer">
+                    <p>© 2026 My React Website | All Rights Reserved</p>
+                </div>
+            );
+        }
+
+        // Main App Component
+        function App() {
+            return (
+                <>
+                    <Navbar />
+                    <Hero />
+                    <Services />
+                    <Footer />
+                </>
+            );
+        }
+
+        // Render App
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App />);
+
+    </script>
+
+</body>
+</html>
